@@ -1,1 +1,1 @@
-https://covidstattoday.herokuapp.com/
+http://covid-stat.surge.sh/
