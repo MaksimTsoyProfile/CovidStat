@@ -16,14 +16,13 @@ const BodyComponent = () => {
   useLayoutEffect(() => {
     dispatch(getPosts());
   }, []);
-  console.log(mounthsDeath);
   if (posts.length > 0) {
     chart({
       mounthsDate, mounthsActive, mounthsDeath, mounthsRecovered,
     });
     return (
       <Card>
-        <Card.Img variant="top" src="../src/img/body.jpg" />
+        <Card.Img variant="top" src="img/body.jpg" />
         <Card.Body>
           <h6>Country:{lastPosts.Country}</h6>
           <h6>Date:{lastPosts.Date.slice(0, 10)}</h6>

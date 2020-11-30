@@ -9,7 +9,6 @@ import { getPostsCountry } from '../slices/data';
 const FormApi = () => {
   const dispatch = useDispatch();
   const onSubmit = (values, form) => {
-    console.log(values.country);
     dispatch(getPostsCountry(values.country));
     setTimeout(form.restart);
   };
