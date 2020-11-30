@@ -1,4 +1,1 @@
-# React boilerplate
-- webpack
-- redux
-- lodash
+https://covidstattoday.herokuapp.com/
