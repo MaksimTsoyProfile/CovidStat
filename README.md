@@ -1,4 +1,1 @@
-# React boilerplate
-- webpack
-- redux
-- lodash
+http://covid-stat.surge.sh/
