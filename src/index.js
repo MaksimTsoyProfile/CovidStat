@@ -7,7 +7,6 @@ import './scss/style.scss';
 import '@babel/polyfill';
 import App from './components/App';
 import rootReducer from './slices';
-import { loading } from './loading';
 
 const middleware = getDefaultMiddleware({
   immutableCheck: false,
@@ -21,7 +20,6 @@ const store = configureStore({
   devTools: process.env.Node_ENV !== 'production',
 });
 
-loading();
 ReactDOM.render(
   <Provider store={store}>
     <App />

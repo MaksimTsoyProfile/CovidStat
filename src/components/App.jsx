@@ -1,38 +1,38 @@
 import React from 'react';
 import {
-  Container, Row, Col, Carousel,
+  Container, Row, Col,
 } from 'react-bootstrap';
-import BodyComponent from './BodyComponent';
+import TitleComponent from './TitleComponent';
 import HeadComponent from './HeadComponent';
-import Charts from './Charts';
-import ChartsActive from './ChartsAcive';
-import ChartsRecovered from './ChartsRecovered';
+import CarouselCharts from './CarouselCharts';
+import BodyComponent from './BodyComponent';
+import AlertComponent from './AlertComponent';
 
 const App = () => (
   <Container>
     <Row>
-      <Col>
+      <Col xs={12}>
         <HeadComponent />
       </Col>
     </Row>
     <Row>
-      <Col>
+      <Col xs={12}>
+        <AlertComponent />
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={12}>
+        <TitleComponent />
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={12}>
         <BodyComponent />
       </Col>
     </Row>
     <Row>
-      <Col>
-        <Carousel>
-          <Carousel.Item>
-            <Charts />
-          </Carousel.Item>
-          <Carousel.Item>
-            <ChartsActive />
-          </Carousel.Item>
-          <Carousel.Item>
-            <ChartsRecovered />
-          </Carousel.Item>
-        </Carousel>
+      <Col xs={12}>
+        <CarouselCharts />
       </Col>
     </Row>
   </Container>

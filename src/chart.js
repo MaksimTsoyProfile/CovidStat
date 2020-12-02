@@ -16,12 +16,19 @@ const chart = ({
       labels: mounthsDate,
       datasets: [{
         label: 'Deaths',
-        backgroundColor: '#292b2c',
-        borderColor: '#292b2c',
+        backgroundColor: '#8285d6',
+        borderColor: '#8285d6',
         data: mounthsDeath,
       }],
     },
-    options: {},
+    options: {
+      legend: {
+        labels: {
+          fontColor: 'white',
+          color: 'white',
+        },
+      },
+    },
   });
   const ctxActive = document.getElementById('myChartActive').getContext('2d');
   if (myChartActive !== null) {
@@ -33,8 +40,8 @@ const chart = ({
       labels: mounthsDate,
       datasets: [{
         label: 'Actives',
-        backgroundColor: '#d9534f',
-        borderColor: '#d9534f',
+        backgroundColor: '#e086ce',
+        borderColor: '#e086ce',
         data: mounthsActive,
       }],
     },
@@ -50,8 +57,8 @@ const chart = ({
       labels: mounthsDate,
       datasets: [{
         label: 'Recovereds',
-        backgroundColor: '#5cb85c',
-        borderColor: '#5cb85c',
+        backgroundColor: '#86d9e1',
+        borderColor: '#86d9e1',
         data: mounthsRecovered,
       }],
     },

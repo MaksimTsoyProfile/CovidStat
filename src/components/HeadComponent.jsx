@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import FormApi from './FormApi';
 
 const HeadComponent = () => (
-  <Container className="logo p-0" >
+  <Container className="logo p-0 py-2">
     <Row>
       <Col xs={12} md={4}>
         <h4>CoviDStaT</h4>

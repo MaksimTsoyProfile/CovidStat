@@ -1,17 +1,22 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useLayoutEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form as RFForm, Field } from 'react-final-form';
 import {
-  Form, Button, Row, Col,
+  Form, Button, Row, Col, option,
 } from 'react-bootstrap';
-import { getPostsCountry } from '../slices/data';
+import { getPostsCountry, getCountries } from '../slices/data';
+import { startLoading } from '../loading';
 
 const FormApi = () => {
   const dispatch = useDispatch();
-  const onSubmit = (values, form) => {
+  const onSubmit = (values) => {
+    startLoading();
     dispatch(getPostsCountry(values.country));
-    setTimeout(form.restart);
   };
+  useLayoutEffect(() => {
+    dispatch(getCountries());
+  }, []);
+  const countries = useSelector((state) => state.data.countries);
   return (
     <RFForm
       onSubmit={onSubmit}
@@ -27,13 +32,18 @@ const FormApi = () => {
                     onChange={input.onChange}
                     value={input.value}
                     placeholder="Enter country"
-                  />
+                    as="select"
+                  >
+                    {countries.map((data) => (
+                      <option key={data.CountryCode} value={data.Slug}>{data.Country}</option>
+                    ))}
+                  </Form.Control>
                 )}
               </Field>
             </Col>
             <Col xs={4}>
               <Button
-                variant="success"
+                id="submit-button"
                 type="submit"
                 disabled={pristine || submiting}
               >
