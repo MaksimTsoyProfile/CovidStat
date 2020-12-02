@@ -2,7 +2,7 @@ import Chart from 'chart.js';
 
 let myCircleChart = null;
 
-const circleChart = () => {
+const circleChart = ({ lastPosts }) => {
   const ctx = document.getElementById('myCircleChart').getContext('2d');
   if (myCircleChart !== null) {
     myCircleChart.destroy();
@@ -11,16 +11,23 @@ const circleChart = () => {
     data: {
       datasets: [{
         backgroundColor: ['#e086ce', '#8285d6', '#86d9e1'],
-        data: [10, 20, 30],
+        data: [lastPosts.Active, lastPosts.Confirmed, lastPosts.Recovered],
       }],
       labels: [
-        'Red',
-        'Yellow',
-        'Blue',
+        'Active',
+        'Confirmed',
+        'Recovered',
       ],
     },
     type: 'polarArea',
-    options: {},
+    options: {
+      legend: {
+        labels: {
+          fontColor: 'white',
+          color: 'white',
+        },
+      },
+    },
   });
 };
 

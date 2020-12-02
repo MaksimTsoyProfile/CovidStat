@@ -22,7 +22,7 @@ const TitleComponent = () => {
     chart({
       mounthsDate, mounthsActive, mounthsDeath, mounthsRecovered,
     });
-    circleChart();
+    circleChart({ lastPosts });
     return (
       <div>
         <div className="text-title py-2">

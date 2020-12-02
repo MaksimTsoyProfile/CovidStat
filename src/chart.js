@@ -45,7 +45,14 @@ const chart = ({
         data: mounthsActive,
       }],
     },
-    options: {},
+    options: {
+      legend: {
+        labels: {
+          fontColor: 'white',
+          color: 'white',
+        },
+      },
+    },
   });
   const ctxRecovered = document.getElementById('myChartRecovered').getContext('2d');
   if (myChartRecovered !== null) {
@@ -62,7 +69,14 @@ const chart = ({
         data: mounthsRecovered,
       }],
     },
-    options: {},
+    options: {
+      legend: {
+        labels: {
+          fontColor: 'white',
+          color: 'white',
+        },
+      },
+    },
   });
 };
 

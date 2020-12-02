@@ -1,9 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form as RFForm, Field } from 'react-final-form';
-import {
-  Form, Button, Row, Col, option,
-} from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import { getPostsCountry, getCountries } from '../slices/data';
 import { startLoading } from '../loading';
 
@@ -21,17 +19,15 @@ const FormApi = () => {
     <RFForm
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, pristine, submiting }) => (
-        <Form onSubmit={handleSubmit}>
+      {({ handleSubmit }) => (
+        <Form onChange={handleSubmit}>
           <Row>
-            <Col xs={8}>
+            <Col xs={'auto'} lg={8}>
               <Field name="country">
                 {({ input }) => (
                   <Form.Control
                     name={input.name}
                     onChange={input.onChange}
-                    value={input.value}
-                    placeholder="Enter country"
                     as="select"
                   >
                     {countries.map((data) => (
@@ -40,15 +36,6 @@ const FormApi = () => {
                   </Form.Control>
                 )}
               </Field>
-            </Col>
-            <Col xs={4}>
-              <Button
-                id="submit-button"
-                type="submit"
-                disabled={pristine || submiting}
-              >
-                Accept
-              </Button>
             </Col>
           </Row>
         </Form>
