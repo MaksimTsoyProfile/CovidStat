@@ -15,7 +15,7 @@ const FormApi = () => {
     dispatch(getCountries());
   }, []);
   const countries = useSelector((state) => state.data.countries);
-  return (
+  return (countries.length > 0 ? (
     <RFForm
       onSubmit={onSubmit}
     >
@@ -41,7 +41,9 @@ const FormApi = () => {
         </Form>
       )}
     </RFForm>
-  );
+  ) : (
+    null
+  ));
 };
 
 export default FormApi;

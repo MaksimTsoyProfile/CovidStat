@@ -11,10 +11,10 @@ const BodyComponent = () => {
       <Row>
         {(posts.length > 0) ? (
           <Col md={6} xs={12} >
-            <h6>Active:{lastPosts.Active}</h6>
-            <h6>Confirmed:{lastPosts.Confirmed}</h6>
-            <h6>Deaths:{lastPosts.Deaths}</h6>
-            <h6>Recovered{lastPosts.Recovered}</h6>
+            <h6>Active:<b>{lastPosts.Active}</b></h6>
+            <h6>Confirmed:<b>{lastPosts.Confirmed}</b></h6>
+            <h6>Deaths:<b>{lastPosts.Deaths}</b></h6>
+            <h6>Recovered:<b>{lastPosts.Recovered}</b></h6>
           </Col>
         ) : (
           null
