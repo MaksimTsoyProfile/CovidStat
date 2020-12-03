@@ -1,39 +1,21 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import TitleComponent from './TitleComponent';
-import HeadComponent from './HeadComponent';
-import CarouselCharts from './CarouselCharts';
-import BodyComponent from './BodyComponent';
-import AlertComponent from './AlertComponent';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Nav from './Nav';
+import MapCovid from './MapCovid';
+import MainComponent from './MainComponent';
+import 'leaflet/dist/leaflet.css';
 
 const App = () => (
-  <Container>
-    <Row>
-      <Col xs={12}>
-        <HeadComponent />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <AlertComponent />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <TitleComponent />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <BodyComponent />
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <CarouselCharts />
-      </Col>
-    </Row>
-  </Container>
+  <Router>
+    <Container>
+      <Nav />
+        <Switch>
+          <Route path='/' exact component={MainComponent}/>
+          <Route path='/map' component={MapCovid}/>
+        </Switch>
+    </Container>
+  </Router>
 );
 
 export default App;

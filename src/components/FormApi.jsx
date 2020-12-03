@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form as RFForm, Field } from 'react-final-form';
 import { Form, Row, Col } from 'react-bootstrap';
-import { getPostsCountry, getCountries } from '../slices/data';
+import { getPostsCountry, getCountries, getMapCircles } from '../slices/data';
 import { startLoading } from '../loading';
 
 const FormApi = () => {
@@ -13,6 +13,7 @@ const FormApi = () => {
   };
   useLayoutEffect(() => {
     dispatch(getCountries());
+    dispatch(getMapCircles());
   }, []);
   const countries = useSelector((state) => state.data.countries);
   return (countries.length > 0 ? (

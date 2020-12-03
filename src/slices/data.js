@@ -7,6 +7,8 @@ export const initialState = {
   posts: [],
   hasErrors: false,
   countries: [],
+  worldTotalDeaths: [],
+  mapDatas: [],
 };
 
 const dataSlice = createSlice({
@@ -36,9 +38,18 @@ const dataSlice = createSlice({
     getCountriesRequest: (state) => state,
     getCountriesSuccess: (state, { payload: data }) => {
       state.countries = sortBy(data.Countries, 'Country');
+      state.worldTotalDeaths = sortBy(data.Countries, 'TotalDeaths').reverse();
       state.hasErrors = false;
     },
     getCountriesFailure: (state) => {
+      state.hasErrors = true;
+    },
+    getMapCirclesRequest: (state) => state,
+    getMapCirclesSuccess: (state, { payload: data }) => {
+      state.mapDatas = data;
+      state.hasErrors = false;
+    },
+    getMapCirclesFailure: (state) => {
       state.hasErrors = true;
     },
   },
@@ -48,6 +59,7 @@ export const {
   getPostRequest, getPostFailure, getPostSuccess,
   getPostsCountryRequest, getPostsCountryFailure, getPostsCountrySuccess,
   getCountriesRequest, getCountriesFailure, getCountriesSuccess,
+  getMapCirclesRequest, getMapCirclesFailure, getMapCirclesSuccess,
 } = dataSlice.actions;
 export default dataSlice.reducer;
 
@@ -83,6 +95,18 @@ export const getCountries = () => async (dispatch) => {
     endLoading();
   } catch (e) {
     dispatch(getCountriesFailure());
+    endLoading();
+  }
+};
+
+export const getMapCircles = () => async (dispatch) => {
+  dispatch(getMapCirclesRequest());
+  try {
+    const response = await axios.get('https://disease.sh/v3/covid-19/countries');
+    dispatch(getMapCirclesSuccess(response.data));
+    endLoading();
+  } catch (e) {
+    dispatch(getMapCirclesFailure());
     endLoading();
   }
 };
